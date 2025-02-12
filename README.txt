@@ -1,10 +1,13 @@
-BJ21 v 3.0
+BJ21 v 3.5
 Developed by Preston Parsons
 12/25/2024
+
+02/12/2025 - v3.5 out, Multiplayer support added!
+2-player versus!
+
 Single-Player Support ONLY in 3.0
 This is because 3.0 was developed in under 5 hours
 
-2-player support will be added in 3.1
 
 License Agreement for BJ21v3.exe
 
