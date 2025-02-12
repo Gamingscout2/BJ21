@@ -1,9 +1,13 @@
 # A simple 1-2 Player Black Jack port in Python
 # An improvement of my BJ21 in C
 # Preston Parsons, 12/25/2024
+# VERSION 3.5 02/12/2025   -->  Multiplayer Support Finished!
+# VERSION 3.01 12/27/2024
+# VERSION 3.00 12/25/2024
+#
 # Subject to the license terms found at:
 # https://sirobivan.org/pcl1-1.html
-# Uses the user's OS Entropy Pool for shuffling
+# Uses the user's OS Entropy Pool for some of the shuffling
 #
 # The major improvements versus my earlier ports:
 # - The game is no longer played with randomly generated numbers, instead
@@ -11,6 +15,7 @@
 # - RNG is handled primarily with os.urandom instead of standard RNG libs
 # - Multi-player support added so 2 players can go head to head
 # as of 3.0, two-player needs implemented
+# version 3.01 fixed lowercase H and S not being valid inputs and terminating the program prematurely
 import os
 import random
 
@@ -59,10 +64,10 @@ def SINGLE_PLAYER():
     # Player's turn
     while HAND_VALUE(player_hand) < 21:
         action = input("Hit or Stay? (H/S): ").strip().lower()
-        if action == 'h':
+        if action == 'h' or action == 'H':
             player_hand.append(deck.pop(0))
             print(f"Your hand: {player_hand}")
-        elif action == 's':
+        elif action == 's' or action == 'S':
             break
         else:
             print("Invalid option.")
@@ -87,7 +92,66 @@ def SINGLE_PLAYER():
 
 
 def TWO_PLAYER():
-    print("Two-player mode is under development. Check back soon!")
+    print('Player 1 vs Player 2')
+    deck = list(card_dict.keys())
+    deck = SHUFFLE(deck)
+    player1_hand, player2_hand = [], []
+
+     # Deal initial hands
+    for _ in range(2):
+        player1_hand.append(deck.pop(0))
+        player2_hand.append(deck.pop(0))
+
+    print(f"Player 1 Hand: {player1_hand}")
+    print(f"Player 2 Hand: {player2_hand}")
+
+    # Player 1's turn
+    while HAND_VALUE(player1_hand) < 21:
+        print("\nPlayer 1 Turn")
+        action = input("Hit or Stay? (H/S): ").strip().lower()
+        if action == 'h':
+            player1_hand.append(deck.pop(0))
+            print(f"Player 1's Hand: {player1_hand}")
+        elif action == 's':
+            break
+        else:
+            print("Invalid option.")
+
+    player1_total = HAND_VALUE(player1_hand)
+    if player1_total > 21:
+        print("Player 1 busts! Player 2 wins.")
+        return
+
+    # Player 2's turn
+    while HAND_VALUE(player2_hand) < 21:
+        print("\nPlayer 2 Turn")
+        action = input("Hit or Stay? (H/S): ").strip().lower()
+        if action == 'h':
+            player2_hand.append(deck.pop(0))
+            print(f"Player 2's Hand: {player2_hand}")
+        elif action == 's':
+            break
+        else:
+            print("Invalid option.")
+
+    player2_total = HAND_VALUE(player2_hand)
+    if player2_total > 21:
+        print("Player 2 busts! Player 1 wins.")
+        return
+
+    # Compare results
+    print("\nFinal Results:")
+    print(f"Player 1's Total: {player1_total}")
+    print(f"Player 2's Total: {player2_total}")
+
+    if player1_total > player2_total:
+        print("Player 1 wins!")
+    elif player1_total < player2_total:
+        print("Player 2 wins!")
+    else:
+        print("It's a tie!")
+
+    play_again()
 
 
 def HAND_VALUE(hand: list):
@@ -198,10 +262,13 @@ def determine_winner(player_total, dealer_total):
         print("It's a tie!")
     play_again()
 
+
 def play_again():
     option = input("Would you like to play again? Y/N: ")
     if option == 'Y' or option == 'y':
         GAME()
     elif option == 'N' or option == 'n':
-        return 0;
+        return 0
+    
+    
 GAME()
