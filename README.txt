@@ -11,7 +11,7 @@ This is because 3.0 was developed in under 5 hours
 
 License Agreement for BJ21v3.exe
 
-Software Name: BJ21 v3.0Developer: Preston ParsonsRelease Date: December 25, 2024Version: 3.0
+Software Name: BJ21 Developer: Phaedra Parsons Release Date: December 25, 2024 Version: 3.0
 
 Notice:
 This version of the software, BJ21v3.exe, supports single-player gameplay only. This limitation exists because version 3.0 was developed in under 5 hours. Two-player support is planned for version 3.1.
