@@ -36,7 +36,7 @@ card_dict = {
 
 def GAME():
     print('Welcome to BJ21 v 3.0!')
-    print('Developed by Preston Parsons')
+    print('Developed by Phaedra Parsons')
     num_players = int(input('1 or 2 Players?: '))
     if num_players == 1:
         SINGLE_PLAYER()
