@@ -1,5 +1,5 @@
 BJ21 v 3.5
-Developed by Preston Parsons
+Developed by Phaedra Parsons
 12/25/2024
 
 02/12/2025 - v3.5 out, Multiplayer support added!
