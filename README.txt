@@ -54,7 +54,7 @@ Preston Parsons reserves the right to pursue legal action against individuals or
 
 Future Versions:
 
-The use of this software does not entitle you to upgrades or future versions. New features, such as 2-player support in version 3.1, will be released at Preston Parsons’ discretion under separate terms.
+The use of this software does not entitle you to upgrades or future versions. New features, such as 2-player support in version 3.1, will be released at developers discretion under separate terms.
 
 By using this software, you acknowledge that you have read and understood this license agreement and agree to abide by all its terms.
 
